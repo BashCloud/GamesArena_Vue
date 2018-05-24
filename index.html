@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Games Arena</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <div class="header">
+            <div class="header-inner">
+                <input type="search" placeholder="Search" v-model="search">
+                <div class="headerTitle">Games Arena </div>
+                <div v-if="sort == ''" class="options" @click="sort = 'score'">
+                    <i class="fas fa-sort-amount-down"></i>
+                </div>
+                <div v-if="sort == 'score'" class="options" @click="sort = ''">
+                    <i class="fas fa-sort"></i>
+                </div>
+            </div>
+        </div>
+        <div class="list">
+            <div class="item" v-for="(game,idx) in getGames" :key="idx">
+                <a :href="urlPrefix + game.url" target="_blank" class="item-link">
+                    <div class="item-inner">
+                        <div class="gamePlatform">{{game.platform | firstChar}}</div>
+                        <div class="item-title">{{game.title}}</div>
+                        <div class="gameDetails"> {{game.genre}} | {{game.release_year}} | {{game.platform}}</div>
+                        <div class="gameScore"> {{game.score}} <i class="far fa-star-half" style="margin-left: -22px;transform: scaleX(-1);"></i></div>
+
+                        <div class="recommended" v-if="game.editors_choice == 'Y'">Editors Choice</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="noResult" v-if="games.length === 0">
+            Fetching...
+        </div>
+        <div v-else-if="getGames.length === 0" class="noResult">
+            <img src="assets/norecordfound.png">
+            <div class="box box__empty"> No Game Found</div>
+        </div>
+        <div class="footer">
+            <div class="pagination">
+                <div class="footerNav">
+                    <div class="navBtn" @click="pageNumber = 0"><i class="fas fa-chevron-left"></i></div>
+                    <div class="navBtn" @click="prevPage()"> <i class="fas fa-arrow-circle-left"></i></div>
+
+                    <div class="pageLinks">
+                        <div class="pageLink" v-if="pageNumber >= 2" @click="pageNumber = pageNumber -2"> {{pageNumber -1}}</div>
+                        <div class="pageLink" v-if="pageNumber >= 1" @click="pageNumber = pageNumber -1"> {{pageNumber }}</div>
+                        <div class="pageLink currPage">{{pageNumber +1}} </div>
+                        <div class="pageLink" v-if="pageNumber <= pageCount-1" @click="pageNumber = pageNumber +1"> {{pageNumber +2}}</div>
+                        <div class="pageLink" v-if="pageNumber <= pageCount-2" @click="pageNumber = pageNumber +2"> {{pageNumber +3}}</div>
+                    </div>
+
+                    <div class="navBtn" @click="nextPage()"><i class="fas fa-arrow-circle-right "></i></div>
+                    <div class="navBtn" @click="pageNumber = pageCount"> <i class="fas fa-chevron-right"></i> </div>
+                </div>
+            </div>
+            Copyright &copy; 2018 | Pulkit Aggarwal
+        </div>
+    </div>
+    <script src='js/vue.min.js'></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+#app {
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F3F5F7;
+    font-family: 'Open Sans', sans-serif;
+    background-image: url('../assets/lines_bg.png');
+    background-attachment: fixed;
+}
+
+.header {
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 5;
+    background-color: #373737;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.header-inner {
+    max-width: 450px;
+    width: 100%;
+    margin: auto;
+    position: relative;
+}
+
+.headerTitle {
+    color: #ccc;
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.headerTitle:hover {
+    color: #fff;
+}
+
+.header .options {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.header .options:hover {
+    color: #fff;
+}
+
+.noResult {
+    margin: auto;
+    text-align: center;
+    color: #575757;
+}
+
+.noResult img {
+    filter: grayscale(100%);
+}
+
+.list .item {
+    background-color: #FFF;
+    margin-bottom: 10px;
+    /* margin-right: 10px; */
+    margin: 0px auto 10px;
+    width: 100%;
+    max-width: 450px;
+    display: block;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); */
+}
+
+.list .item:hover {
+    /* background-color: #eee; */
+    background: linear-gradient(0deg, rgba(247, 247, 247, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(237, 236, 236, 1) 43%, rgba(185, 185, 185, 1) 100%);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22); */
+}
+
+.item-link {
+    text-decoration: none;
+    color: #575757;
+}
+
+.item-inner {
+    position: relative;
+    padding: 20px 75px 20px 60px;
+}
+
+.item-title {
+    font-weight: 600;
+}
+
+.item .recommended {
+    position: absolute;
+    bottom: -1px;
+    right: 0px;
+    background-color: #575757;
+    color: #fff;
+    font-size: 10px;
+    padding: 5px 10px;
+    border-radius: 10px 0px 0px 0px;
+}
+
+.item .gameScore {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    font-size: 30px;
+    color: #ccc;
+    padding: 0px 10px;
+}
+
+.item .gamePlatform {
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #F3F5F7;
+    border-radius: 50%;
+    /* color: #fff; */
+    text-align: center;
+    line-height: 40px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.item:hover .gameScore {
+    color: #575757;
+}
+
+.item .gameDetails {
+    font-size: 12px;
+}
+
+
+/* Min width:360 */
+
+.footer {
+    text-align: center;
+    font-size: 12px;
+    position: fixed;
+    bottom: 0px;
+    background-color: #373737;
+    padding: 10px 0px;
+    width: 100%;
+    color: #ccc;
+}
+
+.pagination {
+    text-align: center;
+    display: block;
+    margin-top: -35px;
+}
+
+.footerNav {
+    background-color: #373737;
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 20px;
+    user-select: none;
+}
+
+.navBtn {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #aaa;
+    color: #373737;
+    cursor: pointer;
+    line-height: 30px;
+    font-size: 20px;
+    display: inline-block;
+}
+
+.navBtn:hover {
+    color: #575757;
+    background-color: #fff;
+}
+
+.pageLinks {
+    display: inline-block;
+    min-width: 150px;
+    padding: 2px 0px;
+    vertical-align: super;
+}
+
+.pageLink {
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    line-height: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid #373737;
+}
+
+.pageLink:hover {
+    border-color: #575757;
+}
+
+.currPage {
+    border: 1px solid #aaa;
+}
+
+
+/* For search bar */
+
+input {
+    outline: none;
+}
+
+input[type=search] {
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    font-family: inherit;
+    font-size: 14px;
+    position: absolute;
+    left: 0px;
+    top: 5px;
+}
+
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+    display: none;
+}
+
+input[type=search] {
+    background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+    border: solid 1px #777;
+    background-color: #373737;
+    padding: 5px 10px 5px 32px;
+    width: 55px;
+    -webkit-border-radius: 10em;
+    -moz-border-radius: 10em;
+    border-radius: 10em;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
+    color: #ccc;
+}
+
+input[type=search]:focus {
+    width: 110px;
+    background-color: #373737;
+    /* border-color: #aaa; */
+    /* -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+    -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+    box-shadow: 0 0 5px rgba(109, 207, 246, .5); */
+}
+
+input:-moz-placeholder {
+    color: #999;
+}
+
+input::-webkit-input-placeholder {
+    color: #999;
+}
