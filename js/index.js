@@ -23,6 +23,13 @@ new Vue({
                     localStorage.setItem('games', JSON.stringify(this.games));
                 })
         }
+        if(this.games.length === 0){
+            fetch("Games.json")
+                .then(response => response.json())
+                .then(json => {
+                    this.games = json;
+                });
+        }
     },
     methods: {
         nextPage() {
